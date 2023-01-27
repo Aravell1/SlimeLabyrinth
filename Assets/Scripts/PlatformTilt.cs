@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformTilt : MonoBehaviour
 {
     GameObject axle;
-    public float rotationRate = 10f;
+    public float rotationRate = 7.5f;
     float lerpTime = 0;
     Quaternion targetRotation;
     Quaternion fromAngle;
@@ -53,7 +53,7 @@ public class PlatformTilt : MonoBehaviour
             if ((other.transform.position.x > transform.position.x && axle.transform.rotation.y == 0) 
                 || (other.transform.position.z < transform.position.z && axle.transform.rotation.y != 0))
             {
-                if (axle.transform.rotation.z > -90 && axle.transform.rotation.z < 90)
+                if (axle.transform.localEulerAngles.z > -60 && axle.transform.localEulerAngles.z < 60)
                 {
                     axle.transform.Rotate(0, 0, -1 * rotationRate * Vector3.Distance(other.transform.position, transform.position) * Time.deltaTime);
                 }
@@ -61,7 +61,7 @@ public class PlatformTilt : MonoBehaviour
             else if ((other.transform.position.x < transform.position.x && axle.transform.rotation.y == 0)
                 || (other.transform.position.z > transform.position.z && axle.transform.rotation.y != 0))
             {
-                if (axle.transform.rotation.z > -90 && axle.transform.rotation.z < 90)
+                if (axle.transform.localEulerAngles.z > -60 && axle.transform.localEulerAngles.z < 60)
                 {
                     axle.transform.Rotate(0, 0, rotationRate * Vector3.Distance(other.transform.position, transform.position) * Time.deltaTime);
                 }

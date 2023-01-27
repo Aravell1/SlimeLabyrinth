@@ -187,7 +187,7 @@ public class Player : MonoBehaviour
                 }
                 MoveState = MovementState.Jumping;
             }
-            else if (Input.GetKeyDown(KeyCode.Space) && MoveState == MovementState.Falling && !doubleJump)
+            else if (Input.GetKeyDown(KeyCode.Space) && (MoveState == MovementState.Falling || MoveState == MovementState.Hovering) && !doubleJump)
             {
                 doubleJump = true;
                 movement.y = 0;
